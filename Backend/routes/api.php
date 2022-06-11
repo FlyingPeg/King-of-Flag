@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('login', [AuthController::class, 'signin']);
+Route::post('register', [AuthController::class, 'signup']);
+
+Route::middleware('auth:sanctum')->group(function() {
+    Route::resource('scores', UserController::class);
+    
+    Route::get('/profile', [UserController::class, 'profile']);
+    Route::put('/update-score', [UserController::class, 'score']);
+    Route::post('/logout', [AuthController::class, 'signout']);
+});
+
+Route::fallback(function(){
+    return response()->json([
+        'success' => false,
+        'message' => 'Page not found.',
+    ], 404);
 });
