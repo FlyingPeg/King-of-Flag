@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $user = User::create([
             'name' => 'FlyingPeg',
             'email' => '20520619@gm.uit.edu.vn',
+            'score' => 0,
             'password' => bcrypt('FnKL6upRv7uhvQ5Mj'),            
         ]);
     }
