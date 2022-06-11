@@ -17,7 +17,7 @@ class UserController extends BaseController
     public function index()
     {   
         try{
-            $users = User::all();
+            $users = User::all()->sortByDesc("score");
             return $this->sendResponse(UserResource::collection($users), 'Users fetched.');
         }catch(\Exception $e){
             return $this->sendError('Error.');
