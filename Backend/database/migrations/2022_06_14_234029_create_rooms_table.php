@@ -17,7 +17,7 @@ class CreateRoomsTable extends Migration
             $table->id();
             $table->string('room_id');
             $table->string('user_w');
-            $table->string('user_b');
+            $table->string('user_b')->nullable();
             $table->timestamps();
         });
     }

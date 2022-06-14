@@ -16,8 +16,8 @@ class CreateMovesTable extends Migration
         Schema::create('moves', function (Blueprint $table) {
             $table->id();
             $table->string('room_id');
-            $table->string('step_w');
-            $table->string('step_b');
+            $table->string('step_w')->nullable();
+            $table->string('step_b')->nullable();
             $table->timestamps();
         });
     }
