@@ -22,4 +22,13 @@ class MoveController extends BaseController
             return $this->sendError('Error.');
         } 
     }
+
+    public function show($room_id)
+    {        
+        $move = Move::where('room_id', $room_id)->first();
+        if (is_null($move)) {
+            return $this->sendError('Room does not exist.');
+        }
+        return $this->sendResponse(new MoveResource($move), 'Move fetched.');
+    }
 }
