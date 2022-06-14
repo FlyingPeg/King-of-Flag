@@ -18,6 +18,8 @@ class Room extends JsonResource
             'room_id' => $this->room_id,
             'user_w' => $this->user_w,
             'user_b' => $this->user_b,
+            'step_w' => $this->step_w,
+            'step_b' => $this->step_b,
         ];
     }
 }
