@@ -42,4 +42,13 @@ class RoomController extends BaseController
         
         return $this->sendResponse(new RoomResource($room), 'Created room.');
     }
+
+    public function show($room_id)
+    {        
+        $room_step = Room::where('room_id', $room_id)->first();
+        if (is_null($room_id)) {
+            return $this->sendError('Room does not exist.');
+        }
+        return $this->sendResponse(new RoomResource($room_step), 'Room fetched.');
+    }
 }
