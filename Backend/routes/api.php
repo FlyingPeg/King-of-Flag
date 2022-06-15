@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\RoomController;
-use App\Http\Controllers\API\MoveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +23,6 @@ Route::post('register', [AuthController::class, 'signup']);
 Route::middleware('auth:sanctum')->group(function() {
     Route::resource('scores', UserController::class);
     Route::resource('rooms', RoomController::class);
-    Route::resource('moves', MoveController::class);
     
     Route::get('/profile', [UserController::class, 'profile']);
     Route::put('/update-score', [UserController::class, 'score']);
