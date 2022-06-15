@@ -45,10 +45,11 @@ class RoomController extends BaseController
 
     public function show($room_id)
     {        
-        $room_step = Room::where('room_id', $room_id)->first();
-        if (is_null($room_id)) {
-            return $this->sendError('Room does not exist.');
+        $room_step = Room::where('room_id', $room_id)->get();  
+        try{
+            return $this->sendResponse(RoomResource::collection($room_step), 'Steps fetched.');
+        }catch(\Exception $e){
+            return $this->sendResponse([],'Steps fetched.');
         }
-        return $this->sendResponse(new RoomResource($room_step), 'Room fetched.');
     }
 }
