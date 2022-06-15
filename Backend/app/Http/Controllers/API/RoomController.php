@@ -23,6 +23,7 @@ class RoomController extends BaseController
         } 
     }
 
+    // Insert step into database
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
@@ -34,37 +35,10 @@ class RoomController extends BaseController
         }
         $user = Auth::user(); 
         $room = Room::create([
-            'user_w' => $user->id,             
-            'user_b' => $request->user_b,             
-            'step_w' => $request->step_w,             
-            'step_b' => $request->step_b,             
-            'room_id' => $request->room_id,
+            'user_id' => $user->id,                         
+            'step' => $request->step,             
         ]);           
         
         return $this->sendResponse(new RoomResource($room), 'Created room.');
-    }
-
-    public function update(Request $request, $room_id)
-    {
-        $authUser = Auth::user();
-        $room = Room::where('room_id', $room_id)->first();
-            if (is_null($room)) {
-                return $this->sendError('Room does not exist.');
-            }
-            $input = $request->all();
-            $validator = Validator::make($input, [
-                'user_b' => 'required|string',
-            ]);
-            if($validator->fails()){
-                return $this->sendError($validator->errors());       
-            }
-            try{                      
-                $room->user_b = $input['user_b'];
-                $room->save();
-
-                return $this->sendResponse(new RoomResource($room), 'Room updated.');
-            }catch(\Exception $e){
-                return $this->sendError('Permission denied.');
-            }
     }
 }
