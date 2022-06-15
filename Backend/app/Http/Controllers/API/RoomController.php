@@ -35,7 +35,8 @@ class RoomController extends BaseController
         }
         $user = Auth::user(); 
         $room = Room::create([
-            'user_id' => $user->id,                         
+            'user_id' => $user->id,
+            'room_id' => $request->room_id,                         
             'step' => $request->step,             
         ]);           
         
