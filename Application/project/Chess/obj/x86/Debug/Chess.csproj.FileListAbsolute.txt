@@ -24,3 +24,17 @@ C:\Users\super\Source\Repos\King-of-Flag\Ạpplication\project\Chess\obj\x86\Deb
 C:\Users\super\Source\Repos\King-of-Flag\Ạpplication\project\Chess\obj\x86\Debug\Chess.exe
 C:\Users\super\Source\Repos\King-of-Flag\Ạpplication\project\Chess\obj\x86\Debug\Chess.pdb
 C:\Users\super\Source\Repos\King-of-Flag\Ạpplication\project\Chess\obj\x86\Debug\Chess.Register.resources
+C:\Users\super\Source\Repos\King-of-Flag\Application\bin\debug\Chess.exe.config
+C:\Users\super\Source\Repos\King-of-Flag\Application\bin\debug\Chess.exe
+C:\Users\super\Source\Repos\King-of-Flag\Application\bin\debug\Chess.pdb
+C:\Users\super\Source\Repos\King-of-Flag\Application\project\Chess\obj\x86\Debug\Chess.csproj.AssemblyReference.cache
+C:\Users\super\Source\Repos\King-of-Flag\Application\project\Chess\obj\x86\Debug\Chess.csproj.SuggestedBindingRedirects.cache
+C:\Users\super\Source\Repos\King-of-Flag\Application\project\Chess\obj\x86\Debug\Chess.Login.resources
+C:\Users\super\Source\Repos\King-of-Flag\Application\project\Chess\obj\x86\Debug\Chess.MainForm.resources
+C:\Users\super\Source\Repos\King-of-Flag\Application\project\Chess\obj\x86\Debug\Chess.Properties.Resources.resources
+C:\Users\super\Source\Repos\King-of-Flag\Application\project\Chess\obj\x86\Debug\Chess.Register.resources
+C:\Users\super\Source\Repos\King-of-Flag\Application\project\Chess\obj\x86\Debug\Chess.csproj.GenerateResource.cache
+C:\Users\super\Source\Repos\King-of-Flag\Application\project\Chess\obj\x86\Debug\Chess.csproj.CoreCompileInputs.cache
+C:\Users\super\Source\Repos\King-of-Flag\Application\project\Chess\obj\x86\Debug\Chess.csproj.CopyComplete
+C:\Users\super\Source\Repos\King-of-Flag\Application\project\Chess\obj\x86\Debug\Chess.exe
+C:\Users\super\Source\Repos\King-of-Flag\Application\project\Chess\obj\x86\Debug\Chess.pdb
