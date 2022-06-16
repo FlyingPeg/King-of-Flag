@@ -1,0 +1,12 @@
+D:\Tai lieu\Projects\chess-master\bin\debug\Chess.exe.config
+D:\Tai lieu\Projects\chess-master\bin\debug\Chess.exe
+D:\Tai lieu\Projects\chess-master\bin\debug\Chess.pdb
+D:\Tai lieu\Projects\chess-master\project\Chess\obj\x86\Debug\Chess.csproj.AssemblyReference.cache
+D:\Tai lieu\Projects\chess-master\project\Chess\obj\x86\Debug\Chess.csproj.SuggestedBindingRedirects.cache
+D:\Tai lieu\Projects\chess-master\project\Chess\obj\x86\Debug\Chess.MainForm.resources
+D:\Tai lieu\Projects\chess-master\project\Chess\obj\x86\Debug\Chess.Properties.Resources.resources
+D:\Tai lieu\Projects\chess-master\project\Chess\obj\x86\Debug\Chess.csproj.GenerateResource.cache
+D:\Tai lieu\Projects\chess-master\project\Chess\obj\x86\Debug\Chess.csproj.CoreCompileInputs.cache
+D:\Tai lieu\Projects\chess-master\project\Chess\obj\x86\Debug\Chess.exe
+D:\Tai lieu\Projects\chess-master\project\Chess\obj\x86\Debug\Chess.pdb
+D:\Tai lieu\Projects\chess-master\project\Chess\obj\x86\Debug\Chess.csproj.CopyComplete
