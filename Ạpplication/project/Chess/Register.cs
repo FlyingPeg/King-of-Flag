@@ -42,8 +42,57 @@ namespace Chess
             txt_Pass.Text = "";
             // The password character is an asterisk.
             txt_Pass.PasswordChar = '*';
-            txt_CPass.Text = "";
-            txt_CPass.PasswordChar = '*';
+            txt_CfPass.Text = "";
+            txt_CfPass.PasswordChar = '*';
+        }
+        private int check;
+        private bool Valid()
+        {
+            check = 0;
+            if (IsValidEmail(txt_Email.Text)
+                    && txt_Email.Text.Length <= 40
+                    && txt_Email.Text.Length >= 11)
+            {
+                lb_MC.Text = "";
+            }
+            else
+            {
+                lb_MC.Text = "Email không hợp lệ";
+                check--;
+            }
+
+            if (txt_Pass.Text.Length >= 8)
+            {
+                lb_PC.Text = "";
+            }
+            else
+            {
+                lb_PC.Text = "Phải nhập mật khẩu từ 8 kí tự trở lên";
+                check--;
+            }
+
+            if (txt_Pass.Text == txt_CfPass.Text)
+            {
+
+                lb_CPC.Text = "";
+            }
+            else
+            {
+                check--;
+                lb_CPC.Text = "Mật khẩu xác nhận không giống.";
+            }
+
+            if (txt_Name.Text != "")
+            {
+                lb_NC.Text = "";
+            }
+            else
+            {
+                check--;
+                lb_NC.Text = "Họ và tên không hợp lệ";
+            }
+            if (check == 0) return true;
+            else return false;
         }
 
         public static bool IsValidEmail(string email)
@@ -92,7 +141,60 @@ namespace Chess
 
         private void Register_Load(object sender, EventArgs e)
         {
+            txt_Email.Text = "123@gmail.com";
+            txt_Name.Text = "Ngo Van Pham";
+            txt_Pass.Text = "12345678";
+            txt_CfPass.Text = "12345678";
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            lbl_Check.Text = "";
+            if (Valid())
+            {
+                // Create a request using a URL that can receive a post.
+                WebRequest request = WebRequest.Create("http://dxl.wiki/api/register");
+                // Set the Method property of the request to POST.
+                request.Method = "POST";
+                // Create POST data and convert it to a byte array.
+                string postData = "email=" + txt_Email.Text
+                            + "&password=" + txt_Pass.Text
+                            + "&confirm_password=" + txt_CfPass.Text
+                            + "&name=" + txt_Name.Text;
+                byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+
+                // Set the ContentType property of the WebRequest.
+                request.ContentType = "application/x-www-form-urlencoded";
+                // Set the ContentLength property of the WebRequest.
+                request.ContentLength = byteArray.Length;
+
+                // Get the request stream.
+                Stream dataStream = request.GetRequestStream();
+                // Write the data to the request stream.
+                dataStream.Write(byteArray, 0, byteArray.Length);
+                // Close the Stream object.
+                dataStream.Close();
+
+                // Get the response.
+                try
+                {
+                    WebResponse response = request.GetResponse();              
+                    lbl_Check.Text = "Đăng kí thành công.";
+                    btn_Reg.FlatStyle = FlatStyle.Flat;
+                    btn_Reg.FlatAppearance.BorderColor = BackColor;
+                    btn_Reg.FlatAppearance.MouseOverBackColor = BackColor;
+                    btn_Reg.FlatAppearance.MouseDownBackColor = BackColor;
+                    btn_Reg.Enabled = false;
+                    response.Close();
+                }
+                catch (Exception)
+                {
+                    lbl_Check.Text = "Email đã tồn tại.";
+                }
+                request.Abort();
+            }
+            else
+                lbl_Check.Text = "Đăng kí không thành công.";
         }
     }
 }
