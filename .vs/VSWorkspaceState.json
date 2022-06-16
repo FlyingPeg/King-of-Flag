@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Application",
+    "\\Application\\project",
+    "\\Application\\project\\Chess"
   ],
-  "SelectedNode": "\\C:\\Users\\super\\Source\\Repos\\King-of-Flag",
+  "SelectedNode": "\\Application\\project\\Chess\\MainForm.cs",
   "PreviewInSolutionExplorer": false
 }

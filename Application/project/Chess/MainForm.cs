@@ -8,11 +8,15 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using Newtonsoft.Json;
+using System.Net;
+using System.Net.Sockets;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Chess
 {
     public partial class MainForm : Form, UIBoard
-    {
+    {      
         bool m_aigame = false;
         bool m_checkmate = false;
         bool m_manualBoard = false; // Don't init board on new game
@@ -20,11 +24,9 @@ namespace Chess
 
         Chess chess;
                 
-        /// <summary>
-        /// Stop all current activity / games and reset everything.
-        /// </summary>
         private void Stop()
         {
+            ChessBoard s = new ChessBoard(); 
             SetStatus("Choose PVP Game to start.");
 
             // stop the ai and reset chess
@@ -35,7 +37,6 @@ namespace Chess
 
             // clear the board ui and log
             SetBoard(new ChessBoard());
-            txtLog.Text = "";
 
             // reset board status vars
             m_checkmate = false;
@@ -46,11 +47,9 @@ namespace Chess
             endCurrentGameToolStripMenuItem.Enabled = false;
         }
 
-        /// <summary>
-        /// Set up a new game for the specified number of players.
-        /// </summary>
         private void NewGame(int nPlayers)
         {
+            
             // clean up all of the things first
             if (!m_manualBoard) Stop();
 
@@ -62,7 +61,7 @@ namespace Chess
             SetTurn(Player.WHITE);
             SetStatus("White's turn.");
             SetStatus("White's Turn.");
-
+            
             // allow stopping the game
             endCurrentGameToolStripMenuItem.Enabled = true;
         }
@@ -110,8 +109,8 @@ namespace Chess
                 lblWhiteCheck.Visible = chess.Turn == Player.BLACK;
                 lblBlackCheck.Visible = chess.Turn == Player.WHITE;
             }
+            LV_LogMove.Items.Add(move);
 
-            txtLog.Text = move + "\n";
         }
 
         public void SetStatus(string message)
@@ -131,6 +130,39 @@ namespace Chess
         {
             Stop();
             this.Close();
+        }
+        private byte[] PToByteArray(position_t obj)
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            MemoryStream ms = new MemoryStream();
+            bf.Serialize(ms, obj);
+
+            return ms.ToArray();
+        }
+
+        private position_t ByteArrayToP(byte[] arrBytes)
+        {
+            MemoryStream memStream = new MemoryStream();
+            BinaryFormatter binForm = new BinaryFormatter();
+            memStream.Write(arrBytes, 0, arrBytes.Length);
+            memStream.Seek(0, SeekOrigin.Begin);
+            position_t obj = (position_t)binForm.Deserialize(memStream);
+            return obj;
+        }
+        public Socket socket;
+        public position_t str;
+        public void Receive()
+        {
+            byte[] data = new byte[1000];
+
+            socket.Receive(data);
+
+            str = ByteArrayToP(data);
+        }
+
+        public void Send()
+        {
+            socket.Send(PToByteArray(str));
         }
     }
 }

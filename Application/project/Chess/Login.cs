@@ -156,5 +156,10 @@ namespace Chess
             Register p = new Register();
             p.Show();
         }
+
+        private void btn_Quit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

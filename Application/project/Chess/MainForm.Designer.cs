@@ -36,11 +36,12 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.splitView = new System.Windows.Forms.SplitContainer();
+            this.lb_Connect = new System.Windows.Forms.Label();
+            this.LV_LogMove = new System.Windows.Forms.ListView();
             this.lbl_Turn = new System.Windows.Forms.Label();
             this.lblBlackCheck = new System.Windows.Forms.Label();
             this.lblWhiteCheck = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtLog = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -100,10 +101,10 @@
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 538);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 540);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(847, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(847, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -125,18 +126,38 @@
             // splitView.Panel2
             // 
             this.splitView.Panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.splitView.Panel2.Controls.Add(this.lb_Connect);
+            this.splitView.Panel2.Controls.Add(this.LV_LogMove);
             this.splitView.Panel2.Controls.Add(this.lbl_Turn);
             this.splitView.Panel2.Controls.Add(this.lblBlackCheck);
             this.splitView.Panel2.Controls.Add(this.lblWhiteCheck);
             this.splitView.Panel2.Controls.Add(this.label3);
-            this.splitView.Panel2.Controls.Add(this.txtLog);
             this.splitView.Panel2.Controls.Add(this.label1);
             this.splitView.Panel2.Controls.Add(this.label2);
             this.splitView.Panel2MinSize = 200;
-            this.splitView.Size = new System.Drawing.Size(847, 510);
-            this.splitView.SplitterDistance = 612;
+            this.splitView.Size = new System.Drawing.Size(847, 512);
+            this.splitView.SplitterDistance = 602;
             this.splitView.SplitterWidth = 5;
             this.splitView.TabIndex = 2;
+            // 
+            // lb_Connect
+            // 
+            this.lb_Connect.AutoSize = true;
+            this.lb_Connect.ForeColor = System.Drawing.Color.Red;
+            this.lb_Connect.Location = new System.Drawing.Point(17, 294);
+            this.lb_Connect.Name = "lb_Connect";
+            this.lb_Connect.Size = new System.Drawing.Size(0, 16);
+            this.lb_Connect.TabIndex = 3;
+            // 
+            // LV_LogMove
+            // 
+            this.LV_LogMove.HideSelection = false;
+            this.LV_LogMove.Location = new System.Drawing.Point(20, 110);
+            this.LV_LogMove.Name = "LV_LogMove";
+            this.LV_LogMove.Size = new System.Drawing.Size(249, 172);
+            this.LV_LogMove.TabIndex = 8;
+            this.LV_LogMove.UseCompatibleStateImageBehavior = false;
+            this.LV_LogMove.View = System.Windows.Forms.View.SmallIcon;
             // 
             // lbl_Turn
             // 
@@ -178,16 +199,6 @@
             this.label3.Size = new System.Drawing.Size(51, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Moves:";
-            // 
-            // txtLog
-            // 
-            this.txtLog.Location = new System.Drawing.Point(21, 111);
-            this.txtLog.Margin = new System.Windows.Forms.Padding(4);
-            this.txtLog.Multiline = true;
-            this.txtLog.Name = "txtLog";
-            this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(248, 324);
-            this.txtLog.TabIndex = 3;
             // 
             // label1
             // 
@@ -245,7 +256,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.SplitContainer splitView;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.Label lblBlackCheck;
         private System.Windows.Forms.Label lblWhiteCheck;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -256,6 +266,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_Turn;
+        private System.Windows.Forms.ListView LV_LogMove;
+        private System.Windows.Forms.Label lb_Connect;
     }
 }
 

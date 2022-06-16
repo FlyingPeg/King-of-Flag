@@ -23,7 +23,7 @@ namespace Chess
 
 
             // number of players = {0, 1, 2}
-            this.m_nPlayers = nPlayers;
+            this.m_nPlayers = 2;
             // white always starts
             this.Turn = Player.WHITE;
 
@@ -38,7 +38,7 @@ namespace Chess
             this.m_UI.SetBoard(Board);
             this.m_UI.SetStatus("White's turn.");
         }
-
+        public position_t x;
         public List<position_t> Select(position_t pos)
         {
             // has previously selected something
@@ -55,13 +55,12 @@ namespace Chess
                     {
                         // we selected a legal move so update the board
                         MakeMove(new move_t(this.Selection, pos));
-
+                        x = pos;
                         // If piece that was just moved is a king and it moved anyhthing other than 1 square, it was 
                         // a castling move, so we need to move the rook
                         if (this.Board.Grid[pos.number][pos.letter].piece == Piece.KING && Math.Abs(pos.letter - this.Selection.letter) == 2)
                         {
                             int row = (this.Turn == Player.WHITE) ? 0 : 7;
-
                             // Left rook
                             if (pos.letter < 4)
                             {
@@ -98,9 +97,9 @@ namespace Chess
         private void MakeMove(move_t m)
         {
             // start move log output
-            string move = (this.Turn == Player.WHITE) ? "W" : "B";
+            string move = (this.Turn == Player.WHITE) ? "White" : "Black";
 
-            move += ": ";
+            move += ": \t";
 
             // piece
             switch (this.Board.Grid[m.from.number][m.from.letter].piece)
@@ -146,7 +145,6 @@ namespace Chess
 
             // number
             move += (m.to.number + 1).ToString();
-
             // update board / make actual move
             this.Board = LegalMoveSet.move(this.Board, m);
 
@@ -157,9 +155,8 @@ namespace Chess
             }
 
             // show log
-            this.m_UI.LogMove(move + "\n");
+            this.m_UI.LogMove(move);
         }
-
         /// <summary>
         /// Toggle who's turn it is
         /// </summary>

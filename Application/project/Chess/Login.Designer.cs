@@ -36,6 +36,7 @@
             this.btn_Login = new System.Windows.Forms.Button();
             this.btn_Register = new System.Windows.Forms.Button();
             this.lbl_Check = new System.Windows.Forms.Label();
+            this.btn_Quit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -86,9 +87,9 @@
             // btn_Login
             // 
             this.btn_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Login.Location = new System.Drawing.Point(228, 214);
+            this.btn_Login.Location = new System.Drawing.Point(226, 214);
             this.btn_Login.Name = "btn_Login";
-            this.btn_Login.Size = new System.Drawing.Size(90, 32);
+            this.btn_Login.Size = new System.Drawing.Size(104, 32);
             this.btn_Login.TabIndex = 5;
             this.btn_Login.Text = "Login";
             this.btn_Login.UseVisualStyleBackColor = true;
@@ -97,7 +98,7 @@
             // btn_Register
             // 
             this.btn_Register.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Register.Location = new System.Drawing.Point(367, 214);
+            this.btn_Register.Location = new System.Drawing.Point(93, 214);
             this.btn_Register.Name = "btn_Register";
             this.btn_Register.Size = new System.Drawing.Size(104, 32);
             this.btn_Register.TabIndex = 6;
@@ -115,11 +116,23 @@
             this.lbl_Check.Size = new System.Drawing.Size(0, 18);
             this.lbl_Check.TabIndex = 7;
             // 
+            // btn_Quit
+            // 
+            this.btn_Quit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_Quit.Location = new System.Drawing.Point(355, 215);
+            this.btn_Quit.Name = "btn_Quit";
+            this.btn_Quit.Size = new System.Drawing.Size(104, 32);
+            this.btn_Quit.TabIndex = 8;
+            this.btn_Quit.Text = "Quit";
+            this.btn_Quit.UseVisualStyleBackColor = true;
+            this.btn_Quit.Click += new System.EventHandler(this.btn_Quit_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 304);
+            this.Controls.Add(this.btn_Quit);
             this.Controls.Add(this.lbl_Check);
             this.Controls.Add(this.btn_Register);
             this.Controls.Add(this.btn_Login);
@@ -146,5 +159,6 @@
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.Button btn_Register;
         private System.Windows.Forms.Label lbl_Check;
+        private System.Windows.Forms.Button btn_Quit;
     }
 }

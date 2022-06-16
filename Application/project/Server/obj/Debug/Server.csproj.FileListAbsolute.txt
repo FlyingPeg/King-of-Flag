@@ -1,0 +1,33 @@
+D:\Tai lieu\Code\Lab3-bai4\Server\bin\Debug\Server.exe.config
+D:\Tai lieu\Code\Lab3-bai4\Server\bin\Debug\Server.exe
+D:\Tai lieu\Code\Lab3-bai4\Server\bin\Debug\Server.pdb
+D:\Tai lieu\Code\Lab3-bai4\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+D:\Tai lieu\Code\Lab3-bai4\Server\obj\Debug\Server.csproj.SuggestedBindingRedirects.cache
+D:\Tai lieu\Code\Lab3-bai4\Server\obj\Debug\Server.Properties.Resources.resources
+D:\Tai lieu\Code\Lab3-bai4\Server\obj\Debug\Server.csproj.GenerateResource.cache
+D:\Tai lieu\Code\Lab3-bai4\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\Tai lieu\Code\Lab3-bai4\Server\obj\Debug\Server.exe
+D:\Tai lieu\Code\Lab3-bai4\Server\obj\Debug\Server.pdb
+D:\Tai lieu\Code\Lab3-bai4\Server\obj\Debug\Server.ServerForm.resources
+D:\Tai lieu\Code\Lab3\Bai 4\Server\bin\Debug\Server.exe.config
+D:\Tai lieu\Code\Lab3\Bai 4\Server\bin\Debug\Server.exe
+D:\Tai lieu\Code\Lab3\Bai 4\Server\bin\Debug\Server.pdb
+D:\Tai lieu\Code\Lab3\Bai 4\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+D:\Tai lieu\Code\Lab3\Bai 4\Server\obj\Debug\Server.csproj.SuggestedBindingRedirects.cache
+D:\Tai lieu\Code\Lab3\Bai 4\Server\obj\Debug\Server.ServerForm.resources
+D:\Tai lieu\Code\Lab3\Bai 4\Server\obj\Debug\Server.Properties.Resources.resources
+D:\Tai lieu\Code\Lab3\Bai 4\Server\obj\Debug\Server.csproj.GenerateResource.cache
+D:\Tai lieu\Code\Lab3\Bai 4\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\Tai lieu\Code\Lab3\Bai 4\Server\obj\Debug\Server.exe
+D:\Tai lieu\Code\Lab3\Bai 4\Server\obj\Debug\Server.pdb
+C:\Users\super\source\repos\King-of-Flag\Application\project\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Users\super\source\repos\King-of-Flag\Application\project\Server\obj\Debug\Server.csproj.SuggestedBindingRedirects.cache
+C:\Users\super\source\repos\King-of-Flag\Application\project\Server\obj\Debug\Server.ServerForm.resources
+C:\Users\super\source\repos\King-of-Flag\Application\project\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\super\source\repos\King-of-Flag\Application\project\Server\obj\Debug\Server.csproj.GenerateResource.cache
+C:\Users\super\source\repos\King-of-Flag\Application\project\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\super\source\repos\King-of-Flag\Application\project\Server\obj\Debug\Server.exe
+C:\Users\super\source\repos\King-of-Flag\Application\project\Server\obj\Debug\Server.pdb
+C:\Users\super\source\repos\King-of-Flag\Application\project\Server\bin\Debug\Server.exe.config
+C:\Users\super\source\repos\King-of-Flag\Application\project\Server\bin\Debug\Server.exe
+C:\Users\super\source\repos\King-of-Flag\Application\project\Server\bin\Debug\Server.pdb
