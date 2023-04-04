@@ -1,5 +1,4 @@
-
-        # Solutions to all the Lab Exercise  
+# Solutions to all the Lab Exercise  
 
 
 ## A1: Injection 
@@ -22,22 +21,31 @@ On Successful injection
 ![image](https://user-images.githubusercontent.com/61360833/118371252-5986ea00-b5c9-11eb-9efb-6beedd558f56.png)
 
 
-### Command Injection
+### Command Injection Lab 1
 The user on accessing the lab is provided with a feature to perform a name server lookup on the given domain. The user has to give a domain name and the server would perform a ns lookup and return back to the client. If the user is running the lab, based on the OS he can select Windows or Linux.
 
 The user can cause the server to execute commands ,because of the lack of input validation.
 
-The user can give a domain say `google.com &amp;&amp; [any cmd]` or `google.com; [any cmd]`
+The user can give a domain say `google.com && [any cmd]` or `google.com; [any cmd]`
 
-If the OS is windows, lets give input as `google.com &amp;&amp; ipconfig` and choose windows.
+If the OS is windows, lets give input as `google.com && ipconfig` and choose windows.
 
-If the OS is linux (Ubuntu, Kali, etc), lets give input as `google.com &amp;&amp; ifconfig` and choose linux.
+If the OS is linux (Ubuntu, Kali, etc), lets give input as `google.com && ifconfig` and choose linux.
 
 This should give you the output for both`ns lookup` as well as for the `ifconfig`.
 
 ![cmd_inj_1](https://user-images.githubusercontent.com/70275323/154504352-4833e37c-dcd2-4097-8f33-2c6a4c36cb76.png)
 
 ![cmd_inj_2](https://user-images.githubusercontent.com/70275323/154504361-4baa73cb-f73b-44a8-8769-0af2e7b53c24.png)
+
+### Command Injection Lab 2
+We are given an input form where we can calculate basic arithmetic expressions. Our task is to exploit this functionality and achieve code execution. 
+
+This lab is using `eval()` function in backend which is used to evaluate expression in python. If the expression is a legal python statement, then it will be executed. 
+
+If we submit the expression `1 + 1`, we get the output as `2`. Similarly, on submitting the expression `7 * 7`, we get the output as `49`.
+
+Now, if we submit `os.system("id")`, we get nothing in the output. But if we check the terminal, we will see that the command gets executed and the result is printed on the terminal screen. You can also verify this by submitting `os.system("sleep 30")`, and you will notice that the request completes after 30 seconds.
 
 ## A2:Broken Authentication
 
@@ -130,14 +138,14 @@ Sending data to the server in the form of XML is not actually vulnerable, the vu
 ##### The Payload
 
 ``` 
-&lt;?xml version='1.0'?&gt;
-&lt;!DOCTYPE comm [
-&lt;!ELEMENT comm (#PCDATA)&gt;
-&lt;!ENTITY xxe SYSTEM "File_Path_Here"&gt;
-]&gt;
-&lt;comm&gt;
-&lt;text&gt;&amp;xxe;&lt;/text&gt;
-&lt;/comm&gt;
+<?xml version='1.0'?>
+<!DOCTYPE comm [
+<!ELEMENT comm (#PCDATA)>
+<!ENTITY xxe SYSTEM "File_Path_Here">
+]>
+<comm>
+<text>&xxe;</text>
+</comm>
 ```
 
 * Incase if the server is running linux then use file path `file:///etc/passwd` and if its running windows, use `C:\windows\system32\drivers\etc\hosts`. This will dump sensitive data about all users.
@@ -239,13 +247,13 @@ Now, click forward and turn off intercept to see Secret Key
 
 ## A7:Cross Site Scripting
 
-* Instead of giving a search term try giving a html tag, ``` &lt;h4 &gt;Hello &lt;/h4&gt;.```
+* Instead of giving a search term try giving a html tag, ``` <h4 >Hello </h4>.```
 * Now you can see that the word Hello has been parsed as a Heading in the page.
 * This shows that the page is able to render the user given html tags.
 * In order to get an xss , the user needs to execute javascript code in the browser.
 * This can be acheived by using a script tag and malicious javascript code.
 * For now let's just use a basic javascript code to alert a text to prove that xss is possible .
-`&lt;script &gt;alert(“xss”) &lt;/script &gt;`
+`<script >alert(“xss”) </script >`
 * Now when a search query is performed with the above payload you can see that the browser is able to render the script tag and execute the javascript , thus alerting “xss” with a pop up.
 
 #### Solving XSS in Browser
@@ -258,9 +266,14 @@ Results page contains the word `TEXT` in Heading as well as Green color hence XS
 
 ![xss_2](https://user-images.githubusercontent.com/70275323/154513170-53ec9273-f310-45fd-b30a-b09794604f3a.png)
 
-Now you can go ahead and enter `&lt;script &gt;alert(“xss”) &lt;/script &gt;` once XSS is confirmed.
+Now you can go ahead and enter `<script >alert(“xss”) </script >` once XSS is confirmed.
 
-To see results on screen, make sure your browser has JavaScript enabled. 
+To see results on screen, make sure your browser has JavaScript enabled.
+
+**Lab 3**
+- ##### [ step- 1 ] Checking user input is being reflected or not
+   - Though alphanumeric characters are being escaped we can still write js code with these 6 character `![]()+`
+   - check [jsfuck](http://www.jsfuck.com/)
 
 
 ## A8:Insecure Deserialization
@@ -289,7 +302,7 @@ The user on accessing the lab is provided with a feature to convert yaml files i
 * On Uploading this file the user should be able to see the output of the command executed.
 
 
-## A10:Insufficient Logging &amp; Monitoring
+## A10:Insufficient Logging & Monitoring
 
 The user on accessing the lab is given with a login page which says the log have been leaked. The user needs to find the leak and try to gain the credentials that have been leaked in the logs.
 
@@ -299,14 +312,14 @@ The user on accessing the lab is given with a login page which says the log have
 * This can be found out with subdomain brute-forcing or just by guess
 * On seeing the Log try to get the required login details as there is a leak and the logging is improperly handled.
 * On looking at the log we can see a get request ot the server that has a username and password to it 
-``` INFO "GET /a10_lab?username=Hacker&amp;password=Hacker HTTP/1.1" 301 0 ```
+``` INFO "GET /a10_lab?username=Hacker&password=Hacker HTTP/1.1" 301 0 ```
 * Now use the credentials to log in .
 
 #### Solving using WebBrowser
- Route used is &lt;http://127.0.0.1:8000/debug&gt;
+ Route used is <http://127.0.0.1:8000/debug>
 ![a10_1](https://user-images.githubusercontent.com/70275323/154619101-d1c4d744-098b-4500-b705-a21841f8b0e4.png)
 
-The Sensitive info is `INFO "GET /a10_lab?username=Hacker&amp;password=Hacker HTTP/1.1" 301 0`
+The Sensitive info is `INFO "GET /a10_lab?username=Hacker&password=Hacker HTTP/1.1" 301 0`
 
 And this info can be used to log in with credentials `Hacker:Hacker`
 ![a10_2](https://user-images.githubusercontent.com/70275323/154619295-7d390db2-b047-4fae-8ff5-d34dcb9dad7f.png)
@@ -434,7 +447,7 @@ This results as being logged in as Admin
 ## 2021-A2:Cryptographic Failure
 
 **Lab 1**
-- Give material --&gt; some user id and hash 
+- Give material --> some user id and hash 
 - ##### [ step- 1 ] Identification of the hash
    - the hash is 32 charecter long
    - most probably the hash is from MD* family
@@ -448,7 +461,7 @@ This results as being logged in as Admin
    - ![image](https://user-images.githubusercontent.com/75058161/177600545-bdbad8bc-f884-4ffe-b0f2-15ff555d95a4.png)
 #
 **Lab 2**
-- Given material --&gt; some user id and hash 
+- Given material --> some user id and hash 
 - ##### [ step- 1 ] Identification of the hash
    - the hash is 64 charecter long
    - most probably the hash is SHA256
@@ -470,8 +483,8 @@ This results as being logged in as Admin
    - Brute force the login page ( no delay implemented so it would be better idea) using burp, Zed etc. 
 #
 **Lab 3**
-- Given material --&gt; Normal user credential 
-- admin user name --&gt; unkown, password --&gt; unkown
+- Given material --> Normal user credential 
+- admin user name --> unkown, password --> unkown
 - ##### Some ovservation
    - ![image](https://user-images.githubusercontent.com/75058161/177697795-aa7071d9-b672-4527-af55-231f3612dad7.png)
    - there is a cookie named `cookie` with a value `"User|2022-07-07 06:24:08.802299"` in the format "{username}|{timestamp}"
@@ -495,7 +508,7 @@ This results as being logged in as Admin
 
 
 
-**Server side Template Injection**
+### 2021-A3:Server side Template Injection
 
 `{% load log %}
 {% get_admin_log 5 as log %}
@@ -505,7 +518,28 @@ This results as being logged in as Admin
 
 add a post which includes this content
  
-The result would look like this --&gt;
+The result would look like this -->
 ![Screenshot from 2022-06-10 21-04-29](https://user-images.githubusercontent.com/75058161/173106213-9e218e81-d4b2-4447-9570-4aa8de3dea88.png)
 
-    
+### 2021-A8: Software and Data Integrity failure
+This data is a demonstration that how an XSS attack can deceive users to download any malicious file. The lab consists of a page to download a file, and a direct link to that page is also given (from a hacker). Let's download both files and compare the hash before opening that.
+![image](https://user-images.githubusercontent.com/75058161/190912308-1d26fb2e-2c6c-4c67-bf2a-9bb0f4abbfd0.png)
+So as we can see the hashes don't match. So as a user we should always cross-check signatures for verification of Data Integrity. 
+
+More more information about the attack itself you can look into the url --> 
+```http://127.0.0.1:8000/2021/A8/lab2?username=user+%3Cscript%3Edocument.getElementById%28%22download_link%22%29.setAttribute%28%22href%22%2C%22%2Fstatic%2Ffake.txt%22%29%3B%3C%2Fscript%3Euser+%3Cscript%3Edocument.getElementById%28%22download_link%22%29.setAttribute%28%22href%22%2C%22%2Fstatic%2Ffake.txt%22%29%3B%3C%2Fscript%3E``` 
+It have a file url and XXS attack to replace the actual file url.
+
+### 2021-A9: Insufficient Logging & Monitoring
+This lab have active logging and have a login page ( we don't have credential )
+So every fake entry is logged so the user name is printed in the file itself..
+```ERROR:root:2022-07-04 07:21:50.906938:127.0.0.1:User1:Hash1```
+this is a sample hash ..
+So we can Enter user name anything and password = ```pass\nERROR:root:2022-07-04 07:21:50.906938:127.0.0.1:User1:Hash1```
+It will create one fake log and also it can cause log overflow also by passing lots of data in injection.
+
+### 2021:A10 : SSRF lab2
+This lab have a local page at ```/ssrf_target``` that can be only accesed from localhost. Now if we do ```python manage.py runserver``` that page will be accisible 
+but if we start the server by ```python manage.py runserver 0:8000``` the page wont be accessble from ```http://[your ip]/ssrf_target``` 
+
+Now comes the utility that takes the URL and fetch the data, if we give the localhost url to this utility it can fetch the data easily and we can see the page from outside localhost. 
